@@ -1,0 +1,16 @@
+/*
+package dev.training.spotify_clone.adapters.callbacks
+
+import android.support.v4.media.session.PlaybackStateCompat
+import androidx.viewpager2.widget.ViewPager2
+import dev.training.spotify_clone.exoplayer.isPlaying
+
+class OnPageChangeCallbackImpl(private val playbackStateCompat: PlaybackStateCompat?) :
+    ViewPager2.OnPageChangeCallback() {
+    override fun onPageSelected(position: Int) {
+        super.onPageSelected(position)
+        if (playbackStateCompat?.isPlaying == true) {
+
+        }
+    }
+}*/
