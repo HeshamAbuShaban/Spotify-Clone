@@ -51,6 +51,8 @@ class MusicNotificationManager(
     ) : PlayerNotificationManager.MediaDescriptionAdapter {
 
         override fun getCurrentContentTitle(player: Player): CharSequence {
+            // he said this is the only place where it called reasonable
+            newSongCallback()
             return mediaController.metadata.description.title.toString()
         }
 
@@ -58,7 +60,7 @@ class MusicNotificationManager(
             return mediaController.sessionActivity
         }
 
-        override fun getCurrentContentText(player: Player): CharSequence? {
+        override fun getCurrentContentText(player: Player): CharSequence {
             return mediaController.metadata.description.subtitle.toString()
         }
 

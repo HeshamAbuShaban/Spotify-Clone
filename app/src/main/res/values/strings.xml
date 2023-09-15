@@ -8,4 +8,5 @@
     <string name="ability_to_change_the_song_state">ability to change the song state</string>
     <string name="ability_to_skip_to_the_previous_music">ability to skip to the previous music</string>
     <string name="ability_to_skip_to_the_next_music">ability to skip to the next music</string>
+    <string name="_00_00">00:00</string>
 </resources>

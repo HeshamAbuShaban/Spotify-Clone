@@ -41,11 +41,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:gravity="center"
-        android:textColor="@color/less_white"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seekBar"
+        tools:ignore="TextSizeCheck"
         tools:text="00:00" />
 
     <SeekBar
@@ -62,12 +63,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:textColor="@color/less_white"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/seekBar"
-        tools:text="00:00" />
+        tools:ignore="TextSizeCheck"
+        tools:text="@string/_00_00" />
 
     <ImageView
         android:id="@+id/ivPlayPauseDetail"

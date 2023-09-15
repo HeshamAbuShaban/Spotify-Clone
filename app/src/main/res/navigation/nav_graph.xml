@@ -19,6 +19,12 @@
     <!--GlobalActions-->
     <action
         android:id="@+id/globalActionNavigateToMusicFragment"
-        app:destination="@id/musicFragment" />
+        app:destination="@id/musicFragment"
+        app:enterAnim="@anim/slide_bottom_to_top"
+        app:popExitAnim="@anim/slide_top_to_bottom"
+        app:popUpTo="@id/homeFragment" />
+    <!--
+        app:popEnterAnim="@anim/slide_out_right"
+        app:popExitAnim="@anim/slide_out_left"-->
 
 </navigation>
