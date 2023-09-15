@@ -2,7 +2,7 @@
 <resources>
 
     <style name="AppLayout" parent="Theme.Material3.Light">
-        <item name="android:background">@color/night_window_background_color</item>
+        <item name="android:background">@color/darkBackground</item>
     </style>
 
 </resources>

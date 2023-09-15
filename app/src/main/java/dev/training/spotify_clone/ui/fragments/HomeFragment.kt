@@ -41,17 +41,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        // we use this way of init the mainViewModel
-        //  .. due the need of binding this fragment to our activity explicitly
-
-        // This is the old way of making the ViewModelFactory
-        /*
-                musicServiceConnection = MusicServiceConnection(this@HomeFragment.requireContext())
-                val factory = MainViewModelFactory(musicServiceConnection)
-                mainViewModel = ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
-        */
-//        musicServiceConnection = MusicServiceConnection(this@HomeFragment.requireContext())
-//        val factory = MainViewModelFactory(FactoryParameterImpl(requireContext()))
 
         mainViewModel = ViewModelProvider(requireActivity(), factory)[MainViewModel::class.java]
 
