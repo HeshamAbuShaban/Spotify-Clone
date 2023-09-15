@@ -5,6 +5,9 @@ import android.support.v4.media.session.PlaybackStateCompat
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.RequestManager
 import com.google.android.material.snackbar.Snackbar
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private var playbackStateCompat: PlaybackStateCompat? = null
 
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -46,9 +50,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setupVPAdapter()
         subscribeToObserver()
         setupClickListeners()
+        navControllerListener()
     }
 
     private fun setupClickListeners() {
@@ -58,6 +64,10 @@ class MainActivity : AppCompatActivity() {
                 curPlayingMusic?.let {
                     mainViewModel.playOrToggleMusic(it, true)
                 }
+            }
+
+            swipeMusicAdapter.onItemClickListener {
+                navController.navigate(R.id.globalActionNavigateToMusicFragment)
             }
 
         }
@@ -76,6 +86,36 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             })
+        }
+    }
+
+    private fun navControllerListener() {
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+            when (destination.id) {
+                R.id.musicFragment -> hideBottomBar()
+                R.id.homeFragment -> showBottomBar()
+                else -> showBottomBar()
+            }
+
+        }
+
+    }
+
+    private fun hideBottomBar() {
+        with(binding) {
+            ivCurSongImage.isVisible = false
+            vpSong.isVisible = false
+            ivPlayPause.isVisible = false
+        }
+    }
+
+    private fun showBottomBar() {
+        with(binding) {
+            ivCurSongImage.isVisible = true
+            vpSong.isVisible = true
+            ivPlayPause.isVisible = true
         }
     }
 

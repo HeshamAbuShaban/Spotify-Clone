@@ -10,5 +10,15 @@
         android:name="dev.training.spotify_clone.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="dev.training.spotify_clone.ui.fragments.MusicFragment"
+        android:label="fragment_music"
+        tools:layout="@layout/fragment_music" />
+
+    <!--GlobalActions-->
+    <action
+        android:id="@+id/globalActionNavigateToMusicFragment"
+        app:destination="@id/musicFragment" />
 
 </navigation>

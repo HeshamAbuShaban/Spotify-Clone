@@ -4,4 +4,8 @@
     <string name="notification_channel_name">notification_channel_name</string>
     <string name="notification_channel_description">notification_channel_description</string>
     <string name="music_picture">music picture</string>
+    <string name="the_music_picture">the music picture</string>
+    <string name="ability_to_change_the_song_state">ability to change the song state</string>
+    <string name="ability_to_skip_to_the_previous_music">ability to skip to the previous music</string>
+    <string name="ability_to_skip_to_the_next_music">ability to skip to the next music</string>
 </resources>
