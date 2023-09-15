@@ -1,29 +1,25 @@
 package dev.training.spotify_clone.adapters
 
 import androidx.recyclerview.widget.AsyncListDiffer
-import com.bumptech.glide.RequestManager
 import dev.training.spotify_clone.R
 import dev.training.spotify_clone.data.entities.Music
-import dev.training.spotify_clone.databinding.ItemMusicBinding
-import javax.inject.Inject
+import dev.training.spotify_clone.databinding.ItemSwipeMusicBinding
 
-class MusicAdapter @Inject constructor(
-    private val glide: RequestManager,
-) : AppBaseAdapter(R.layout.item_music) {
-    private lateinit var binding: ItemMusicBinding
+class SwipeMusicAdapter : AppBaseAdapter(R.layout.item_swipe_music) {
+    private lateinit var binding: ItemSwipeMusicBinding
 
     override val differ = AsyncListDiffer(this, diffCallback)
     override fun onBindViewHolder(holder: MusicViewHolder, position: Int) {
         val music = musics[position]
-        binding = ItemMusicBinding.bind(holder.itemView)
+        binding = ItemSwipeMusicBinding.bind(holder.itemView)
         bindData(binding, music)
     }
 
-    private fun bindData(binding: ItemMusicBinding, music: Music) {
+    private fun bindData(binding: ItemSwipeMusicBinding, music: Music) {
         with(binding) {
-            glide.load(music.imageUrl).into(ivItemImage)
-            tvPrimary.text = music.title
-            tvSecondary.text = music.subtitle
+
+            val text = "${music.title} - ${music.subtitle}"
+            tvPrimary.text = text
 
             root.setOnClickListener {
                 onItemClickListener?.let { click ->
